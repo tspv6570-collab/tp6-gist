@@ -2,285 +2,182 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<title>The Silent Runner – Guided Discovery Tasks</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Emotion Matching Quiz</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: #f5f4f0;
-    min-height: 100vh;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    padding: 2rem 1rem;
-    color: #1a1a1a;
-  }
-
-  .card {
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.08), 0 4px 24px rgba(0,0,0,0.06);
-    padding: 2rem 2rem 1.75rem;
-    max-width: 760px;
-    width: 100%;
-  }
-
-  .header { margin-bottom: 1.5rem; }
-  .header h1 { font-size: 20px; font-weight: 600; color: #111; margin-bottom: 4px; }
-  .header p { font-size: 13.5px; color: #666; line-height: 1.6; }
-
-  .columns {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.25rem;
-  }
-
-  @media (max-width: 560px) {
-    .columns { grid-template-columns: 1fr; }
-    .card { padding: 1.25rem 1rem; }
-  }
-
-  .col-label {
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.07em;
-    color: #999;
-    margin-bottom: 8px;
-  }
-
-  .stmt-card {
-    background: #fff;
-    border: 1px solid #e4e4e0;
-    border-radius: 10px;
-    padding: 10px 13px;
-    margin-bottom: 7px;
-    font-size: 13px;
-    color: #222;
-    line-height: 1.55;
-    cursor: pointer;
-    transition: background 0.12s, border-color 0.12s;
-    display: flex;
-    gap: 9px;
-    align-items: flex-start;
-  }
-  .stmt-card:hover { background: #f9f9f7; border-color: #ccc; }
-  .stmt-card .letter { font-weight: 600; font-size: 13px; color: #888; min-width: 18px; flex-shrink: 0; }
-  .stmt-card.selected { border-color: #555; background: #f3f3f1; }
-  .stmt-card.pending-wrong { border-color: #c0522a; background: #fdf1ed; cursor: pointer; }
-  .stmt-card.pending-wrong .letter { color: #a8391a; }
-  .stmt-card.correct { border-color: #1a9068; background: #eaf7f2; cursor: default; }
-  .stmt-card.correct .letter { color: #136b4d; }
-  .stmt-card.correct:hover { background: #eaf7f2; border-color: #1a9068; }
-
-  .emotion-btn {
-    background: #fff;
-    border: 1px solid #e4e4e0;
-    border-radius: 10px;
-    padding: 10px 13px;
-    margin-bottom: 7px;
-    font-size: 13px;
-    color: #222;
-    cursor: pointer;
-    width: 100%;
-    text-align: left;
-    display: flex;
-    align-items: center;
-    gap: 9px;
-    transition: background 0.12s, border-color 0.12s;
-    font-family: inherit;
-  }
-  .emotion-btn:hover { background: #f9f9f7; border-color: #ccc; }
-  .emotion-btn i { font-size: 17px; color: #999; flex-shrink: 0; }
-  .emotion-btn.used { opacity: 0.38; pointer-events: none; }
-  .emotion-btn.correct { border-color: #1a9068; background: #eaf7f2; color: #136b4d; pointer-events: none; }
-  .emotion-btn.correct i { color: #1a9068; }
-
-  .feedback-bar {
-    margin-top: 1rem;
-    padding: 9px 13px;
-    border-radius: 8px;
-    font-size: 13px;
-    line-height: 1.5;
-    display: none;
-  }
-  .feedback-bar.show { display: block; }
-  .feedback-bar.ok { background: #eaf7f2; color: #136b4d; border: 1px solid #1a9068; }
-  .feedback-bar.err { background: #fdf1ed; color: #a8391a; border: 1px solid #c0522a; }
-
-  .bottom {
-    margin-top: 1.25rem;
-    display: flex;
-    align-items: center;
-    gap: 1.25rem;
-    flex-wrap: wrap;
-  }
-  .score-wrap { display: flex; align-items: baseline; gap: 5px; }
-  .score-num { font-size: 22px; font-weight: 600; color: #111; }
-  .score-label { font-size: 13px; color: #888; }
-
-  .reset-btn {
-    padding: 7px 16px;
-    font-size: 13px;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-    background: #fff;
-    color: #333;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-family: inherit;
-    transition: background 0.12s;
-  }
-  .reset-btn:hover { background: #f3f3f1; }
-  .reset-btn i { font-size: 15px; }
-
-  .complete-msg {
-    font-size: 14px;
-    font-weight: 500;
-    color: #136b4d;
-    margin-top: 0.75rem;
-    display: none;
-  }
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.6;
+        margin: 40px auto;
+        max-width: 900px;
+        padding: 0 20px;
+        background: #f7f7f7;
+        color: #222;
+    }
+    h1, h2, h3 {
+        color: #333;
+    }
+    .review-box {
+        background: #ffffff;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.08);
+        margin-bottom: 40px;
+    }
+    .task-section {
+        background: #ffffff;
+        padding: 25px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.08);
+        margin-bottom: 40px;
+    }
+    .answer-key {
+        background: #eef6ff;
+        padding: 15px;
+        border-left: 4px solid #3b82f6;
+        margin-top: 15px;
+        border-radius: 4px;
+    }
+    .code {
+        font-family: Consolas, monospace;
+        background: #eee;
+        padding: 3px 6px;
+        border-radius: 4px;
+    }
 </style>
 </head>
+
 <body>
-<div class="card">
-  <div class="header">
-    <h1>Emotion Matching Quiz</h1>
-    <p>Select a statement (A–H) on the left, then click the emotion on the right that best matches it. If you get one wrong, keep trying until you find the correct answer!</p>
-  </div>
 
-  <div class="columns">
-    <div><div class="col-label">Statements</div><div id="stmts"></div></div>
-    <div><div class="col-label">Emotions</div><div id="emotions"></div></div>
-  </div>
+<h1>THE SILENT RUNNER — Film Review & Guided Discovery Tasks</h1>
 
-  <div class="feedback-bar" id="feedback"></div>
+<!-- ========================= -->
+<!-- FILM REVIEW AT THE TOP -->
+<!-- ========================= -->
 
-  <div class="bottom">
-    <div class="score-wrap">
-      <span class="score-num" id="score">0</span>
-      <span class="score-label">/ 8 correct</span>
-    </div>
-    <button class="reset-btn" onclick="reset()"><i class="ti ti-refresh"></i> Start over</button>
-  </div>
-  <div id="complete-msg" class="complete-msg">🎉 Well done — all 8 matched correctly!</div>
+<div class="review-box">
+<h2>A Film Review</h2>
+
+<p><strong>"The Silent Runner"</strong> is a quietly powerful drama set in a remote mountain village in northern Norway. Directed by a debut filmmaker of remarkable restraint, the film follows Erik, a retired long-distance runner who returns to his childhood home after a decade of self-imposed exile, only to discover that the community he once knew has changed beyond recognition.</p>
+
+<p>The plot unfolds slowly and deliberately. Erik reconnects with his elderly mother, his estranged sister, and a young neighbour who reminds him painfully of his younger self. There are no dramatic twists, no car chases, and no villains — only the quiet tension of unspoken grief and the gradual thaw of damaged relationships.</p>
+
+<p>In my opinion, what makes this film truly compelling is its extraordinary use of landscape. The snow-covered peaks and frozen lakes are not merely a backdrop; they become a visual language for Erik's interior world. The cinematography is breathtaking, and the sparse, haunting score perfectly complements the film's contemplative pace.</p>
+
+<p>The performances are uniformly excellent. The lead actor delivers a deeply restrained and utterly convincing portrayal, communicating volumes through expression and silence rather than dialogue. The supporting cast is equally strong, with the actress playing the sister giving a particularly moving performance.</p>
+
+<p>However, it must be acknowledged that "The Silent Runner" is not a film for everyone. Its deliberately slow pace and minimal dialogue may frustrate viewers seeking fast-paced entertainment. Some scenes feel slightly overlong, and a tighter edit might have sharpened its emotional impact.</p>
+
+<p><strong>Overall, I would highly recommend "The Silent Runner"</strong> to anyone who appreciates thoughtful, beautifully crafted cinema. It is a film that lingers in the mind long after the credits roll — a rare and genuinely affecting experience.</p>
+
+<p><strong>★★★★☆ (4 out of 5 stars)</strong></p>
 </div>
 
-<script>
-const DATA = [
-  { letter: 'A', text: 'One thing that always makes me feel embarrassed is I say the wrong thing at the wrong time.', emotion: 'Embarrassment', icon: 'ti-mood-sad' },
-  { letter: 'B', text: "There's only one thing that really stresses me.", emotion: 'Stress', icon: 'ti-brain' },
-  { letter: 'C', text: 'It makes me completely crazy.', emotion: 'Anger / Frustration', icon: 'ti-flame' },
-  { letter: 'D', text: 'I find all sorts of strange situations quite funny.', emotion: 'Amusement', icon: 'ti-mood-smile' },
-  { letter: 'E', text: 'The thing that frightens me the most is watching horror films.', emotion: 'Fear', icon: 'ti-ghost' },
-  { letter: 'F', text: 'It just puts me in a really great mood.', emotion: 'Happiness', icon: 'ti-sun' },
-  { letter: 'G', text: 'I absolutely detest snakes.', emotion: 'Disgust / Hatred', icon: 'ti-mood-confuzed' },
-  { letter: 'H', text: "I know you shouldn't laugh, but I can't stop myself from laughing.", emotion: 'Uncontrollable laughter', icon: 'ti-mood-laugh' },
-];
+<!-- ========================= -->
+<!-- GUIDED DISCOVERY TASKS -->
+<!-- ========================= -->
 
-function shuffle(arr) {
-  const a = [...arr];
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
-}
+<h2>Section 7 — Guided Discovery Text Analysis Tasks</h2>
 
-let shuffledEmotions = shuffle(DATA.map(d => ({ emotion: d.emotion, icon: d.icon, letter: d.letter })));
-let selectedLetter = null;
-let correctSet = new Set();
-let wrongLetter = null;
-let score = 0;
+<!-- TASK 1a -->
+<div class="task-section">
+<h3>TASK 1a — BEFORE YOU READ (Lead-in activation — 3 minutes)</h3>
+<p><strong>Instruction:</strong> Look at the title <em>"The Silent Runner."</em> In pairs, discuss the following questions:</p>
+<ol>
+    <li>What kind of film do you think this might be? (genre)</li>
+    <li>Would you want to watch it? Why / Why not?</li>
+    <li>Think of a film you have seen recently. Write three adjectives to describe it.</li>
+</ol>
+</div>
 
-function render() {
-  const stmtsEl = document.getElementById('stmts');
-  const emotionsEl = document.getElementById('emotions');
-  stmtsEl.innerHTML = '';
-  emotionsEl.innerHTML = '';
+<!-- TASK 1b -->
+<div class="task-section">
+<h3>TASK 1b — UNDERSTANDING THE STRUCTURE (Guided Discovery – Genre — 5 minutes)</h3>
+<p><strong>Instruction:</strong> Read the film review. Match each paragraph (1–6) to its function from the box below. Write the paragraph number next to the correct function.</p>
 
-  DATA.forEach(d => {
-    const div = document.createElement('div');
-    const isCorrect = correctSet.has(d.letter);
-    const isWrong = wrongLetter === d.letter;
-    const isSelected = selectedLetter === d.letter;
-    let cls = 'stmt-card';
-    if (isCorrect) cls += ' correct';
-    else if (isWrong) cls += ' pending-wrong';
-    else if (isSelected) cls += ' selected';
-    div.className = cls;
-    div.innerHTML = `<span class="letter">${d.letter}.</span><span>${d.text}</span>`;
-    if (!isCorrect) div.onclick = () => selectStmt(d.letter);
-    stmtsEl.appendChild(div);
-  });
+<p><strong>Function Labels:</strong></p>
+<ul>
+    <li>_____ Brief description of the plot</li>
+    <li>_____ Final recommendation and star rating</li>
+    <li>_____ Introduction — what the film is and who made it</li>
+    <li>_____ Discussion of a weakness or limitation</li>
+    <li>_____ Evaluation of performances</li>
+    <li>_____ Evaluation of a key strength (cinematography / soundtrack)</li>
+</ul>
 
-  shuffledEmotions.forEach(e => {
-    const btn = document.createElement('button');
-    const isUsed = [...correctSet].some(k => DATA.find(d => d.letter === k).emotion === e.emotion);
-    btn.className = 'emotion-btn' + (isUsed ? ' used correct' : '');
-    btn.innerHTML = `<i class="ti ${e.icon}"></i>${e.emotion}`;
-    if (!isUsed) btn.onclick = () => selectEmotion(e.emotion);
-    emotionsEl.appendChild(btn);
-  });
+<div class="answer-key">
+<strong>Answer Key (Teacher's Copy):</strong><br>
+Paragraph 1 = Introduction<br>
+Paragraph 2 = Plot description<br>
+Paragraph 3 = Key strength (cinematography / soundtrack)<br>
+Paragraph 4 = Performances<br>
+Paragraph 5 = Weakness / limitation<br>
+Paragraph 6 = Final recommendation + rating
+</div>
+</div>
 
-  document.getElementById('score').textContent = score;
-}
+<!-- TASK 1c -->
+<div class="task-section">
+<h3>TASK 1c — LANGUAGE FOCUS: NOTICING (Guided Discovery – Lexis — 6 minutes)</h3>
 
-function selectStmt(letter) {
-  if (correctSet.has(letter)) return;
-  selectedLetter = letter;
-  wrongLetter = null;
-  showFeedback('', '');
-  render();
-}
+<p><strong>Instruction:</strong> Find and underline the following in the review:</p>
+<ol>
+    <li>Three phrases the writer uses to give an opinion</li>
+    <li>Five positive evaluative adjectives</li>
+    <li>One evaluative adjective describing a weakness</li>
+    <li>The phrase the writer uses to make a recommendation</li>
+</ol>
 
-function selectEmotion(emotionName) {
-  if (selectedLetter === null) {
-    showFeedback('Please select a statement first.', 'err');
-    return;
-  }
-  const correctEmotion = DATA.find(d => d.letter === selectedLetter).emotion;
-  if (emotionName === correctEmotion) {
-    correctSet.add(selectedLetter);
-    score++;
-    showFeedback(`Correct! Statement ${selectedLetter} expresses ${emotionName}.`, 'ok');
-    wrongLetter = null;
-    selectedLetter = null;
-    if (score === 8) {
-      document.getElementById('complete-msg').style.display = 'block';
-    }
-  } else {
-    wrongLetter = selectedLetter;
-    selectedLetter = null;
-    showFeedback(`Not quite — keep trying for statement ${wrongLetter}!`, 'err');
-  }
-  render();
-}
+<p>Then answer these questions in pairs:</p>
+<ol>
+    <li>Are the opinion phrases at the beginning, middle, or end of sentences?</li>
+    <li>Do the evaluative adjectives come before or after the noun?</li>
+    <li>Is the recommendation phrase formal or informal? How do you know?</li>
+</ol>
 
-function showFeedback(msg, type) {
-  const el = document.getElementById('feedback');
-  el.className = 'feedback-bar' + (msg ? ' show ' + type : '');
-  el.textContent = msg;
-}
+<div class="answer-key">
+<strong>Answer Key (Teacher's Copy):</strong><br>
+1. Opinion phrases: “In my opinion,” / “it must be acknowledged that” / “I would highly recommend”<br>
+2. Positive adjectives: compelling, breathtaking, haunting, excellent, convincing, moving, affecting (any five)<br>
+3. Weakness adjective: overlong (also accept “frustrating”)<br>
+4. Recommendation: “I would highly recommend…”<br><br>
+a. Opinion phrases appear at the start of sentences.<br>
+b. Evaluative adjectives appear before the noun or after linking verbs.<br>
+c. Formal — signalled by full verb forms and sophisticated vocabulary.
+</div>
+</div>
 
-function reset() {
-  selectedLetter = null;
-  correctSet = new Set();
-  wrongLetter = null;
-  score = 0;
-  shuffledEmotions = shuffle(DATA.map(d => ({ emotion: d.emotion, icon: d.icon, letter: d.letter })));
-  document.getElementById('complete-msg').style.display = 'none';
-  showFeedback('', '');
-  render();
-}
+<!-- TASK 1d -->
+<div class="task-section">
+<h3>TASK 1d — MEANING CHECK: ADJECTIVE MATCHING (5 minutes)</h3>
 
-render();
-</script>
+<p><strong>Instruction:</strong> Match the evaluative adjective (1–6) to its meaning (a–f).</p>
+
+<table border="1" cellpadding="6" cellspacing="0">
+<tr><th>No.</th><th>Adjective</th><th>Meaning Letter</th></tr>
+<tr><td>1</td><td>compelling</td><td></td></tr>
+<tr><td>2</td><td>breathtaking</td><td></td></tr>
+<tr><td>3</td><td>haunting</td><td></td></tr>
+<tr><td>4</td><td>convincing</td><td></td></tr>
+<tr><td>5</td><td>moving</td><td></td></tr>
+<tr><td>6</td><td>gripping</td><td></td></tr>
+</table>
+
+<p><strong>Meanings:</strong></p>
+<ul>
+    <li>a. producing a strong feeling of sadness or sympathy</li>
+    <li>b. so interesting or exciting that you cannot stop watching</li>
+    <li>c. astonishingly impressive or beautiful</li>
+    <li>d. remaining in your memory in a beautiful, slightly sad way</li>
+    <li>e. performed in a way that seems real and believable</li>
+    <li>f. intensely interesting or exciting</li>
+</ul>
+
+<div class="answer-key">
+<strong>Answer Key (Teacher's Copy):</strong><br>
+1 – b &nbsp; | &nbsp; 2 – c &nbsp; | &nbsp; 3 – d &nbsp; | &nbsp; 4 – e &nbsp; | &nbsp; 5 – a &nbsp; | &nbsp; 6 – f
+</div>
+</div>
+
 </body>
 </html>
