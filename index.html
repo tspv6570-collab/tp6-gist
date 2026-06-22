@@ -11,20 +11,41 @@
         margin: 40px auto;
         max-width: 900px;
         padding: 0 20px;
-        background: #f4f4f4;
+        background: #eef1f5;
         color: #222;
     }
-    h1, h2, h3 {
-        color: #333;
+
+    h1 {
+        text-align: center;
+        color: #1a3d7c;
+        margin-bottom: 30px;
     }
+
+    h2 {
+        color: #1a3d7c;
+        margin-top: 0;
+    }
+
     .review-box, .task-section {
         background: #ffffff;
         padding: 25px;
-        border-radius: 10px;
+        border-radius: 12px;
         box-shadow: 0 0 12px rgba(0,0,0,0.08);
         margin-bottom: 40px;
     }
-    textarea, input[type="text"], select {
+
+    /* COLOR CODING */
+    .task1 { border-left: 10px solid #4a90e2; }
+    .task2 { border-left: 10px solid #7ed321; }
+    .task3 { border-left: 10px solid #f5a623; }
+
+    /* ICONS */
+    .icon {
+        font-size: 1.4rem;
+        margin-right: 8px;
+    }
+
+    textarea, input[type="text"] {
         width: 100%;
         padding: 10px;
         margin: 8px 0 15px 0;
@@ -32,62 +53,62 @@
         border: 1px solid #ccc;
         font-size: 1rem;
     }
+
     table {
         width: 100%;
         border-collapse: collapse;
         margin-top: 15px;
     }
+
     table, th, td {
         border: 1px solid #ccc;
     }
+
     th, td {
         padding: 10px;
         text-align: left;
     }
-    .highlight {
-        background: #e8f3ff;
-        padding: 5px 8px;
-        border-radius: 4px;
+
+    .para-number {
+        font-weight: bold;
+        color: #0055aa;
     }
 </style>
 </head>
 
 <body>
 
-<h1>The Silent Runner — Student Quiz</h1>
+<h1>🎬 The Silent Runner — Student Quiz</h1>
 
 <!-- ========================= -->
-<!-- FILM REVIEW AT THE TOP -->
+<!-- FILM REVIEW WITH PARAGRAPH NUMBERS -->
 <!-- ========================= -->
 
 <div class="review-box">
-<h2>Film Review</h2>
+<h2>📘 Film Review</h2>
 
-<p><strong>"The Silent Runner"</strong> is a quietly powerful drama set in a remote mountain village in northern Norway. Directed by a debut filmmaker of remarkable restraint, the film follows Erik, a retired long-distance runner who returns to his childhood home after a decade of self-imposed exile, only to discover that the community he once knew has changed beyond recognition.</p>
+<p><span class="para-number">Paragraph 1:</span> <strong>"The Silent Runner"</strong> is a quietly powerful drama set in a remote mountain village in northern Norway. Directed by a debut filmmaker of remarkable restraint, the film follows Erik, a retired long-distance runner who returns to his childhood home after a decade of self-imposed exile, only to discover that the community he once knew has changed beyond recognition.</p>
 
-<p>The plot unfolds slowly and deliberately. Erik reconnects with his elderly mother, his estranged sister, and a young neighbour who reminds him painfully of his younger self. There are no dramatic twists, no car chases, and no villains — only the quiet tension of unspoken grief and the gradual thaw of damaged relationships.</p>
+<p><span class="para-number">Paragraph 2:</span> The plot unfolds slowly and deliberately. Erik reconnects with his elderly mother, his estranged sister, and a young neighbour who reminds him painfully of his younger self. There are no dramatic twists, no car chases, and no villains — only the quiet tension of unspoken grief and the gradual thaw of damaged relationships.</p>
 
-<p>In my opinion, what makes this film truly compelling is its extraordinary use of landscape. The snow-covered peaks and frozen lakes are not merely a backdrop; they become a visual language for Erik's interior world. The cinematography is breathtaking, and the sparse, haunting score perfectly complements the film's contemplative pace.</p>
+<p><span class="para-number">Paragraph 3:</span> In my opinion, what makes this film truly compelling is its extraordinary use of landscape. The snow-covered peaks and frozen lakes are not merely a backdrop; they become a visual language for Erik's interior world. The cinematography is breathtaking, and the sparse, haunting score perfectly complements the film's contemplative pace.</p>
 
-<p>The performances are uniformly excellent. The lead actor delivers a deeply restrained and utterly convincing portrayal, communicating volumes through expression and silence rather than dialogue. The supporting cast is equally strong, with the actress playing the sister giving a particularly moving performance.</p>
+<p><span class="para-number">Paragraph 4:</span> The performances are uniformly excellent. The lead actor delivers a deeply restrained and utterly convincing portrayal, communicating volumes through expression and silence rather than dialogue. The supporting cast is equally strong, with the actress playing the sister giving a particularly moving performance.</p>
 
-<p>However, it must be acknowledged that "The Silent Runner" is not a film for everyone. Its deliberately slow pace and minimal dialogue may frustrate viewers seeking fast-paced entertainment. Some scenes feel slightly overlong, and a tighter edit might have sharpened its emotional impact.</p>
+<p><span class="para-number">Paragraph 5:</span> However, it must be acknowledged that "The Silent Runner" is not a film for everyone. Its deliberately slow pace and minimal dialogue may frustrate viewers seeking fast-paced entertainment. Some scenes feel slightly overlong, and a tighter edit might have sharpened its emotional impact.</p>
 
-<p><strong>Overall, I would highly recommend "The Silent Runner"</strong> to anyone who appreciates thoughtful, beautifully crafted cinema. It is a film that lingers in the mind long after the credits roll — a rare and genuinely affecting experience.</p>
+<p><span class="para-number">Paragraph 6:</span> <strong>Overall, I would highly recommend "The Silent Runner"</strong> to anyone who appreciates thoughtful, beautifully crafted cinema. It is a film that lingers in the mind long after the credits roll — a rare and genuinely affecting experience.</p>
 
 <p><strong>★★★★☆ (4 out of 5 stars)</strong></p>
 </div>
 
 <!-- ========================= -->
-<!-- QUIZ TASKS -->
+<!-- TASK 1 -->
 <!-- ========================= -->
 
-<h2>Guided Discovery Quiz</h2>
-
-<!-- TASK 1b -->
-<div class="task-section">
-<h3>Task 1b — Understanding the Structure</h3>
-<p>Match each function to the correct paragraph number (1–6). The order below is scrambled.</p>
+<div class="task-section task1">
+<h3><span class="icon">🧩</span>Task 1 — Understanding the Structure</h3>
+<p>Match each function to the correct paragraph number (1–6). The order below is intentionally mixed.</p>
 
 <label>Evaluation of performances:</label>
 <input type="text">
@@ -108,9 +129,12 @@
 <input type="text">
 </div>
 
-<!-- TASK 1c -->
-<div class="task-section">
-<h3>Task 1c — Language Focus: Noticing</h3>
+<!-- ========================= -->
+<!-- TASK 2 -->
+<!-- ========================= -->
+
+<div class="task-section task2">
+<h3><span class="icon">🔍</span>Task 2 — Language Focus: Noticing</h3>
 
 <p>Find and write examples from the review:</p>
 
@@ -132,11 +156,24 @@
 <textarea></textarea>
 </div>
 
-<!-- TASK 1d -->
-<div class="task-section">
-<h3>Task 1d — Meaning Check: Adjective Matching</h3>
+<!-- ========================= -->
+<!-- TASK 3 -->
+<!-- ========================= -->
 
-<p>Match the adjectives (1–6) to the meanings (a–f). Both lists are scrambled.</p>
+<div class="task-section task3">
+<h3><span class="icon">📝</span>Task 3 — Meaning Check: Adjective Matching</h3>
+
+<p>Match the adjectives (1–6) to the meanings (a–f).</p>
+
+<p><strong>Meanings:</strong></p>
+<ul>
+    <li>a. producing a strong feeling of sadness or sympathy</li>
+    <li>b. so interesting or exciting that you cannot stop watching</li>
+    <li>c. astonishingly impressive or beautiful</li>
+    <li>d. remaining in your memory in a beautiful, slightly sad way</li>
+    <li>e. performed in a way that seems real and believable</li>
+    <li>f. intensely interesting or exciting</li>
+</ul>
 
 <table>
 <tr><th>No.</th><th>Adjective</th><th>Your Answer</th></tr>
@@ -147,16 +184,6 @@
 <tr><td>5</td><td>convincing</td><td><input type="text"></td></tr>
 <tr><td>6</td><td>breathtaking</td><td><input type="text"></td></tr>
 </table>
-
-<p><strong>Meanings (scrambled):</strong></p>
-<ul>
-    <li>e. performed in a way that seems real and believable</li>
-    <li>a. producing a strong feeling of sadness or sympathy</li>
-    <li>d. remaining in your memory in a beautiful, slightly sad way</li>
-    <li>f. intensely interesting or exciting</li>
-    <li>c. astonishingly impressive or beautiful</li>
-    <li>b. so interesting or exciting that you cannot stop watching</li>
-</ul>
 </div>
 
 </body>
