@@ -39,19 +39,9 @@
     }
 
     .task1 { border-left: 10px solid #4a90e2; }
-    .task2 { border-left: 10px solid #7ed321; }
-    .task3 { border-left: 10px solid #f5a623; }
+    .task2 { border-left: 10px solid #f5a623; }
 
     .icon { font-size: 1.4rem; margin-right: 8px; }
-
-    textarea, input[type="text"] {
-        width: 100%;
-        padding: 10px;
-        margin: 8px 0 15px 0;
-        border-radius: 6px;
-        border: 1px solid #ccc;
-        font-size: 1rem;
-    }
 
     .para-number {
         font-weight: bold;
@@ -129,7 +119,7 @@
 <h1>🎬 The Silent Runner — Student Quiz</h1>
 
 <!-- ========================= -->
-<!-- FILM REVIEW (FULL TEXT RESTORED) -->
+<!-- FILM REVIEW (FULL TEXT) -->
 <!-- ========================= -->
 
 <div class="review-box">
@@ -174,28 +164,11 @@
 </div>
 
 <!-- ========================= -->
-<!-- TASK 2 — LANGUAGE FOCUS -->
+<!-- TASK 2 — MATCHING (formerly Task 3) -->
 <!-- ========================= -->
 
 <div class="task-section task2">
-<h3><span class="icon">🔍</span>Task 2 — Language Focus: Noticing</h3>
-
-<label>1. Three opinion phrases:</label>
-<textarea></textarea>
-
-<label>2. One adjective describing a weakness:</label>
-<input type="text">
-
-<label>3. The phrase used to make a recommendation:</label>
-<textarea></textarea>
-</div>
-
-<!-- ========================= -->
-<!-- TASK 3 — MATCHING -->
-<!-- ========================= -->
-
-<div class="task-section task3">
-<h3><span class="icon">📝</span>Task 3 — Meaning Check: Adjective Matching</h3>
+<h3><span class="icon">📝</span>Task 2 — Meaning Check: Adjective Matching</h3>
 <p>Click an adjective, then click the meaning it matches.</p>
 
 <div class="columns">
@@ -271,7 +244,7 @@ function checkT1(choice) {
   renderT1();
 }
 
-/* ---------------- TASK 3 ---------------- */
+/* ---------------- TASK 2 (formerly Task 3) ---------------- */
 
 const T3_DATA = [
   { id: '1', adj: 'haunting', match: 'd' },
