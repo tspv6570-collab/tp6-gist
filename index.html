@@ -1,191 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>The Silent Runner – Student Quiz</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
+  <meta charset="UTF-8">
+  <title>Emotion Matching Quiz</title>
+  <style>
     body {
-        font-family: Arial, Helvetica, sans-serif;
-        line-height: 1.6;
-        margin: 40px auto;
-        max-width: 900px;
-        padding: 0 20px;
-        background: #eef1f5;
-        color: #222;
+      font-family: Arial, sans-serif;
+      margin: 30px;
+      background-color: #f7f7f7;
     }
-
     h1 {
-        text-align: center;
-        color: #1a3d7c;
-        margin-bottom: 30px;
+      text-align: center;
     }
-
-    h2 {
-        color: #1a3d7c;
-        margin-top: 0;
+    .instructions {
+      margin-bottom: 20px;
+      font-size: 0.95rem;
     }
-
-    .review-box, .task-section {
-        background: #ffffff;
-        padding: 25px;
-        border-radius: 12px;
-        box-shadow: 0 0 12px rgba(0,0,0,0.08);
-        margin-bottom: 40px;
+    .container {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
     }
-
-    /* COLOR CODING */
-    .task1 { border-left: 10px solid #4a90e2; }
-    .task2 { border-left: 10px solid #7ed321; }
-    .task3 { border-left: 10px solid #f5a623; }
-
-    /* ICONS */
-    .icon {
-        font-size: 1.4rem;
-        margin-right: 8px;
+    .column {
+      flex: 1;
     }
-
-    textarea, input[type="text"] {
-        width: 100%;
-        padding: 10px;
-        margin: 8px 0 15px 0;
-        border-radius: 6px;
-        border: 1px solid #ccc;
-        font-size: 1rem;
+    .column h2 {
+      margin-bottom: 10px;
     }
-
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 15px;
+    ol, ul {
+      background: #ffffff;
+      padding: 15px 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
     }
-
-    table, th, td {
-        border: 1px solid #ccc;
+    li {
+      margin-bottom: 8px;
     }
-
-    th, td {
-        padding: 10px;
-        text-align: left;
+    .match-row {
+      margin-top: 30px;
+      background: #ffffff;
+      padding: 15px 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
     }
-
-    .para-number {
-        font-weight: bold;
-        color: #0055aa;
+    .match-row label {
+      display: inline-block;
+      width: 40px;
+      font-weight: bold;
     }
-</style>
+    select {
+      margin: 4px 0;
+    }
+  </style>
 </head>
-
 <body>
 
-<h1>🎬 The Silent Runner — Student Quiz</h1>
+  <h1>Emotion Matching Quiz</h1>
 
-<!-- ========================= -->
-<!-- FILM REVIEW WITH PARAGRAPH NUMBERS -->
-<!-- ========================= -->
+  <p class="instructions">
+    Match each statement (A–H) with the emotion that best fits it.
+    Use the dropdowns below to choose an emotion for each statement.
+  </p>
 
-<div class="review-box">
-<h2>📘 Film Review</h2>
+  <div class="container">
+    <div class="column">
+      <h2>Statements</h2>
+      <ol type="A">
+        <li>One thing that always makes me feel embarrassed is I say the wrong thing at the wrong time.</li>
+        <li>There's only one thing that really stresses me.</li>
+        <li>It makes me completely crazy.</li>
+        <li>I find all sorts of strange situations quite funny.</li>
+        <li>The thing that frightens me the most is watching horror films.</li>
+        <li>It just puts me in a really great mood.</li>
+        <li>I absolutely detest snakes.</li>
+        <li>I know you shouldn't laugh, but I can't stop myself from laughing.</li>
+      </ol>
+    </div>
 
-<p><span class="para-number">Paragraph 1:</span> <strong>"The Silent Runner"</strong> is a quietly powerful drama set in a remote mountain village in northern Norway. Directed by a debut filmmaker of remarkable restraint, the film follows Erik, a retired long-distance runner who returns to his childhood home after a decade of self-imposed exile, only to discover that the community he once knew has changed beyond recognition.</p>
+    <div class="column">
+      <h2>Emotions</h2>
+      <ul>
+        <li>Uncontrollable laughter</li>
+        <li>Anger / Frustration</li>
+        <li>Amusement</li>
+        <li>Embarrassment</li>
+        <li>Fear</li>
+        <li>Happiness</li>
+        <li>Disgust / Hatred</li>
+        <li>Stress</li>
+      </ul>
+    </div>
+  </div>
 
-<p><span class="para-number">Paragraph 2:</span> The plot unfolds slowly and deliberately. Erik reconnects with his elderly mother, his estranged sister, and a young neighbour who reminds him painfully of his younger self. There are no dramatic twists, no car chases, and no villains — only the quiet tension of unspoken grief and the gradual thaw of damaged relationships.</p>
-
-<p><span class="para-number">Paragraph 3:</span> In my opinion, what makes this film truly compelling is its extraordinary use of landscape. The snow-covered peaks and frozen lakes are not merely a backdrop; they become a visual language for Erik's interior world. The cinematography is breathtaking, and the sparse, haunting score perfectly complements the film's contemplative pace.</p>
-
-<p><span class="para-number">Paragraph 4:</span> The performances are uniformly excellent. The lead actor delivers a deeply restrained and utterly convincing portrayal, communicating volumes through expression and silence rather than dialogue. The supporting cast is equally strong, with the actress playing the sister giving a particularly moving performance.</p>
-
-<p><span class="para-number">Paragraph 5:</span> However, it must be acknowledged that "The Silent Runner" is not a film for everyone. Its deliberately slow pace and minimal dialogue may frustrate viewers seeking fast-paced entertainment. Some scenes feel slightly overlong, and a tighter edit might have sharpened its emotional impact.</p>
-
-<p><span class="para-number">Paragraph 6:</span> <strong>Overall, I would highly recommend "The Silent Runner"</strong> to anyone who appreciates thoughtful, beautifully crafted cinema. It is a film that lingers in the mind long after the credits roll — a rare and genuinely affecting experience.</p>
-
-<p><strong>★★★★☆ (4 out of 5 stars)</strong></p>
-</div>
-
-<!-- ========================= -->
-<!-- TASK 1 -->
-<!-- ========================= -->
-
-<div class="task-section task1">
-<h3><span class="icon">🧩</span>Task 1 — Understanding the Structure</h3>
-<p>Match each function to the correct paragraph number (1–6). The order below is intentionally mixed.</p>
-
-<label>Evaluation of performances:</label>
-<input type="text">
-
-<label>Final recommendation and star rating:</label>
-<input type="text">
-
-<label>Discussion of a weakness or limitation:</label>
-<input type="text">
-
-<label>Introduction — what the film is and who made it:</label>
-<input type="text">
-
-<label>Evaluation of a key strength (cinematography / soundtrack):</label>
-<input type="text">
-
-<label>Brief description of the plot:</label>
-<input type="text">
-</div>
-
-<!-- ========================= -->
-<!-- TASK 2 -->
-<!-- ========================= -->
-
-<div class="task-section task2">
-<h3><span class="icon">🔍</span>Task 2 — Language Focus: Noticing</h3>
-
-<p>Find and write examples from the review:</p>
-
-<label>1. Three opinion phrases:</label>
-<textarea></textarea>
-
-<label>2. One adjective describing a weakness:</label>
-<input type="text">
-
-<label>3. The phrase used to make a recommendation:</label>
-<textarea></textarea>
-
-<p>Now answer:</p>
-
-<label>4. Where do the opinion phrases appear in sentences?</label>
-<input type="text">
-
-<label>5. Is the recommendation phrase formal or informal? How do you know?</label>
-<textarea></textarea>
-</div>
-
-<!-- ========================= -->
-<!-- TASK 3 -->
-<!-- ========================= -->
-
-<div class="task-section task3">
-<h3><span class="icon">📝</span>Task 3 — Meaning Check: Adjective Matching</h3>
-
-<p>Match the adjectives (1–6) to the meanings (a–f).</p>
-
-<p><strong>Meanings:</strong></p>
-<ul>
-    <li>a. producing a strong feeling of sadness or sympathy</li>
-    <li>b. so interesting or exciting that you cannot stop watching</li>
-    <li>c. astonishingly impressive or beautiful</li>
-    <li>d. remaining in your memory in a beautiful, slightly sad way</li>
-    <li>e. performed in a way that seems real and believable</li>
-    <li>f. intensely interesting or exciting</li>
-</ul>
-
-<table>
-<tr><th>No.</th><th>Adjective</th><th>Your Answer</th></tr>
-<tr><td>1</td><td>haunting</td><td><input type="text"></td></tr>
-<tr><td>2</td><td>moving</td><td><input type="text"></td></tr>
-<tr><td>3</td><td>compelling</td><td><input type="text"></td></tr>
-<tr><td>4</td><td>gripping</td><td><input type="text"></td></tr>
-<tr><td>5</td><td>convincing</td><td><input type="text"></td></tr>
-<tr><td>6</td><td>breathtaking</td><td><input type="text"></td></tr>
-</table>
-</div>
+  <div class="match-row">
+    <h2>Match the Statements</h2>
+    <form>
+      <div>
+        <label for="A">A</label>
+        <select id="A" name="A">
+          <option value="">-- choose emotion --</option>
+          <option>Uncontrollable laughter</option>
+          <option>Anger / Frustration</option>
+          <option>Amusement</option>
+          <option>Embarrassment</option>
+          <option>Fear</option>
+          <option>Happiness</option>
+          <option>Disgust / Hatred</option>
+          <option>Stress</option>
+        </select>
+      </div>
+      <div>
+        <label for="B">B</label>
+        <select id="B" name="B">
+          <option value="">-- choose emotion --</option>
+          <option>Uncontrollable laughter</option>
+          <option>Anger / Frustration</option>
+          <option>Amusement</option>
+          <option>Embarrassment</option>
+          <option>Fear</option>
+          <option>Happiness</option>
+          <option>Disgust / Hatred</option>
+          <option>Stress</option>
+        </select>
+      </div>
+      <div>
+        <label for="C">C</label>
+        <select id="C" name="C">
+          <option value="">-- choose emotion --</option>
+          <option>Uncontrollable laughter</option>
+          <option>Anger / Frustration</option>
+          <option>Amusement</option>
+          <option>Embarrassment</option>
+          <option>Fear</option>
+          <option>Happiness</option>
+          <option>Disgust / Hatred</option>
+          <option>Stress</option>
+        </select>
+      </div>
+      <div>
+        <label for="D">D</label>
+        <select id="D" name="D">
+          <option value="">-- choose emotion --</option>
+          <option>Uncontrollable laughter</option>
+          <option>Anger / Frustration</option>
+          <option>Amusement</option>
+          <option>Embarrassment</option>
+          <option>Fear</option>
+          <option>Happiness</option>
+          <option>Disgust / Hatred</option>
+          <option>Stress</option>
+        </select>
+      </div>
+      <div>
+        <label for="E">E</label>
+        <select id="E" name="E">
+          <option value="">-- choose emotion --</option>
+          <option>Uncontrollable laughter</option>
+          <option>Anger / Frustration</option>
+          <option>Amusement</option>
+          <option>Embarrassment</option>
+          <option>Fear</option>
+          <option>Happiness</option>
+          <option>Disgust / Hatred</option>
+          <option>Stress</option>
+        </select>
+      </div>
+      <div>
+        <label for="F">F</label>
+        <select id="F" name="F">
+          <option value="">-- choose emotion --</option>
+          <option>Uncontrollable laughter</option>
+          <option>Anger / Frustration</option>
+          <option>Amusement</option>
+          <option>Embarrassment</option>
+          <option>Fear</option>
+          <option>Happiness</option>
+          <option>Disgust / Hatred</option>
+          <option>Stress</option>
+        </select>
+      </div>
+      <div>
+        <label for="G">G</label>
+        <select id="G" name="G">
+          <option value="">-- choose emotion --</option>
+          <option>Uncontrollable laughter</option>
+          <option>Anger / Frustration</option>
+          <option>Amusement</option>
+          <option>Embarrassment</option>
+          <option>Fear</option>
+          <option>Happiness</option>
+          <option>Disgust / Hatred</option>
+          <option>Stress</option>
+        </select>
+      </div>
+      <div>
+        <label for="H">H</label>
+        <select id="H" name="H">
+          <option value="">-- choose emotion --</option>
+          <option>Uncontrollable laughter</option>
+          <option>Anger / Frustration</option>
+          <option>Amusement</option>
+          <option>Embarrassment</option>
+          <option>Fear</option>
+          <option>Happiness</option>
+          <option>Disgust / Hatred</option>
+          <option>Stress</option>
+        </select>
+      </div>
+    </form>
+  </div>
 
 </body>
 </html>
+
 
