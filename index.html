@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <title>The Silent Runner – Student Quiz</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+
 <style>
     body {
         font-family: Arial, Helvetica, sans-serif;
@@ -21,7 +25,7 @@
         margin-bottom: 30px;
     }
 
-    h2 {
+    h2, h3 {
         color: #1a3d7c;
         margin-top: 0;
     }
@@ -34,16 +38,11 @@
         margin-bottom: 40px;
     }
 
-    /* COLOR CODING */
     .task1 { border-left: 10px solid #4a90e2; }
     .task2 { border-left: 10px solid #7ed321; }
     .task3 { border-left: 10px solid #f5a623; }
 
-    /* ICONS */
-    .icon {
-        font-size: 1.4rem;
-        margin-right: 8px;
-    }
+    .icon { font-size: 1.4rem; margin-right: 8px; }
 
     textarea, input[type="text"] {
         width: 100%;
@@ -54,24 +53,73 @@
         font-size: 1rem;
     }
 
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 15px;
-    }
-
-    table, th, td {
-        border: 1px solid #ccc;
-    }
-
-    th, td {
-        padding: 10px;
-        text-align: left;
-    }
-
     .para-number {
         font-weight: bold;
         color: #0055aa;
+    }
+
+    /* Matching UI */
+    .columns {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .col-label {
+        font-size: 12px;
+        font-weight: bold;
+        color: #666;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    .card-item {
+        background: #fff;
+        border: 1px solid #ccc;
+        padding: 12px 14px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        transition: 0.15s;
+    }
+
+    .card-item:hover {
+        background: #f3f3f3;
+        border-color: #999;
+    }
+
+    .selected {
+        border-color: #1a3d7c;
+        background: #e8f0ff;
+    }
+
+    .correct {
+        border-color: #1a9068 !important;
+        background: #eaf7f2 !important;
+        cursor: default;
+    }
+
+    .feedback {
+        margin-top: 15px;
+        padding: 10px 14px;
+        border-radius: 8px;
+        display: none;
+    }
+
+    .feedback.ok {
+        background: #eaf7f2;
+        border: 1px solid #1a9068;
+        color: #136b4d;
+        display: block;
+    }
+
+    .feedback.err {
+        background: #fdf1ed;
+        border: 1px solid #c0522a;
+        color: #a8391a;
+        display: block;
     }
 </style>
 </head>
@@ -81,62 +129,56 @@
 <h1>🎬 The Silent Runner — Student Quiz</h1>
 
 <!-- ========================= -->
-<!-- FILM REVIEW WITH PARAGRAPH NUMBERS -->
+<!-- FILM REVIEW -->
 <!-- ========================= -->
 
 <div class="review-box">
 <h2>📘 Film Review</h2>
 
-<p><span class="para-number">Paragraph 1:</span> <strong>"The Silent Runner"</strong> is a quietly powerful drama set in a remote mountain village in northern Norway. Directed by a debut filmmaker of remarkable restraint, the film follows Erik, a retired long-distance runner who returns to his childhood home after a decade of self-imposed exile, only to discover that the community he once knew has changed beyond recognition.</p>
+<p><span class="para-number">Paragraph 1:</span> <strong>"The Silent Runner"</strong> is a quietly powerful drama set in a remote mountain village in northern Norway...</p>
 
-<p><span class="para-number">Paragraph 2:</span> The plot unfolds slowly and deliberately. Erik reconnects with his elderly mother, his estranged sister, and a young neighbour who reminds him painfully of his younger self. There are no dramatic twists, no car chases, and no villains — only the quiet tension of unspoken grief and the gradual thaw of damaged relationships.</p>
+<p><span class="para-number">Paragraph 2:</span> The plot unfolds slowly and deliberately...</p>
 
-<p><span class="para-number">Paragraph 3:</span> In my opinion, what makes this film truly compelling is its extraordinary use of landscape. The snow-covered peaks and frozen lakes are not merely a backdrop; they become a visual language for Erik's interior world. The cinematography is breathtaking, and the sparse, haunting score perfectly complements the film's contemplative pace.</p>
+<p><span class="para-number">Paragraph 3:</span> In my opinion, what makes this film truly compelling is its extraordinary use of landscape...</p>
 
-<p><span class="para-number">Paragraph 4:</span> The performances are uniformly excellent. The lead actor delivers a deeply restrained and utterly convincing portrayal, communicating volumes through expression and silence rather than dialogue. The supporting cast is equally strong, with the actress playing the sister giving a particularly moving performance.</p>
+<p><span class="para-number">Paragraph 4:</span> The performances are uniformly excellent...</p>
 
-<p><span class="para-number">Paragraph 5:</span> However, it must be acknowledged that "The Silent Runner" is not a film for everyone. Its deliberately slow pace and minimal dialogue may frustrate viewers seeking fast-paced entertainment. Some scenes feel slightly overlong, and a tighter edit might have sharpened its emotional impact.</p>
+<p><span class="para-number">Paragraph 5:</span> However, it must be acknowledged that "The Silent Runner" is not a film for everyone...</p>
 
-<p><span class="para-number">Paragraph 6:</span> <strong>Overall, I would highly recommend "The Silent Runner"</strong> to anyone who appreciates thoughtful, beautifully crafted cinema. It is a film that lingers in the mind long after the credits roll — a rare and genuinely affecting experience.</p>
+<p><span class="para-number">Paragraph 6:</span> <strong>Overall, I would highly recommend "The Silent Runner"</strong>...</p>
 
 <p><strong>★★★★☆ (4 out of 5 stars)</strong></p>
 </div>
 
 <!-- ========================= -->
-<!-- TASK 1 -->
+<!-- TASK 1 — VISUAL MATCHING -->
 <!-- ========================= -->
 
 <div class="task-section task1">
 <h3><span class="icon">🧩</span>Task 1 — Understanding the Structure</h3>
-<p>Match each function to the correct paragraph number (1–6). The order below is intentionally mixed.</p>
+<p>Click a function, then click the paragraph it belongs to.</p>
 
-<label>Evaluation of performances:</label>
-<input type="text">
+<div class="columns">
+    <div>
+        <div class="col-label">Functions</div>
+        <div id="t1-functions"></div>
+    </div>
 
-<label>Final recommendation and star rating:</label>
-<input type="text">
+    <div>
+        <div class="col-label">Paragraphs</div>
+        <div id="t1-paragraphs"></div>
+    </div>
+</div>
 
-<label>Discussion of a weakness or limitation:</label>
-<input type="text">
-
-<label>Introduction — what the film is and who made it:</label>
-<input type="text">
-
-<label>Evaluation of a key strength (cinematography / soundtrack):</label>
-<input type="text">
-
-<label>Brief description of the plot:</label>
-<input type="text">
+<div id="t1-feedback" class="feedback"></div>
 </div>
 
 <!-- ========================= -->
-<!-- TASK 2 -->
+<!-- TASK 2 — LANGUAGE FOCUS -->
 <!-- ========================= -->
 
 <div class="task-section task2">
 <h3><span class="icon">🔍</span>Task 2 — Language Focus: Noticing</h3>
-
-<p>Find and write examples from the review:</p>
 
 <label>1. Three opinion phrases:</label>
 <textarea></textarea>
@@ -146,46 +188,164 @@
 
 <label>3. The phrase used to make a recommendation:</label>
 <textarea></textarea>
-
-<p>Now answer:</p>
-
-<label>4. Where do the opinion phrases appear in sentences?</label>
-<input type="text">
-
-<label>5. Is the recommendation phrase formal or informal? How do you know?</label>
-<textarea></textarea>
 </div>
 
 <!-- ========================= -->
-<!-- TASK 3 -->
+<!-- TASK 3 — MATCHING -->
 <!-- ========================= -->
 
 <div class="task-section task3">
 <h3><span class="icon">📝</span>Task 3 — Meaning Check: Adjective Matching</h3>
+<p>Click an adjective, then click the meaning it matches.</p>
 
-<p>Match the adjectives (1–6) to the meanings (a–f).</p>
+<div class="columns">
+    <div>
+        <div class="col-label">Adjectives</div>
+        <div id="t3-adj"></div>
+    </div>
 
-<p><strong>Meanings:</strong></p>
-<ul>
-    <li>a. producing a strong feeling of sadness or sympathy</li>
-    <li>b. so interesting or exciting that you cannot stop watching</li>
-    <li>c. astonishingly impressive or beautiful</li>
-    <li>d. remaining in your memory in a beautiful, slightly sad way</li>
-    <li>e. performed in a way that seems real and believable</li>
-    <li>f. intensely interesting or exciting</li>
-</ul>
-
-<table>
-<tr><th>No.</th><th>Adjective</th><th>Your Answer</th></tr>
-<tr><td>1</td><td>haunting</td><td><input type="text"></td></tr>
-<tr><td>2</td><td>moving</td><td><input type="text"></td></tr>
-<tr><td>3</td><td>compelling</td><td><input type="text"></td></tr>
-<tr><td>4</td><td>gripping</td><td><input type="text"></td></tr>
-<tr><td>5</td><td>convincing</td><td><input type="text"></td></tr>
-<tr><td>6</td><td>breathtaking</td><td><input type="text"></td></tr>
-</table>
+    <div>
+        <div class="col-label">Meanings</div>
+        <div id="t3-meanings"></div>
+    </div>
 </div>
+
+<div id="t3-feedback" class="feedback"></div>
+</div>
+
+<!-- ========================= -->
+<!-- JAVASCRIPT -->
+<!-- ========================= -->
+
+<script>
+/* ---------------- TASK 1 ---------------- */
+
+const T1_FUNCTIONS = [
+  { id: 'A', text: 'Evaluation of performances', match: 4 },
+  { id: 'B', text: 'Final recommendation and star rating', match: 6 },
+  { id: 'C', text: 'Discussion of a weakness or limitation', match: 5 },
+  { id: 'D', text: 'Introduction — what the film is and who made it', match: 1 },
+  { id: 'E', text: 'Evaluation of a key strength (cinematography / soundtrack)', match: 3 },
+  { id: 'F', text: 'Brief description of the plot', match: 2 }
+];
+
+let t1Selected = null;
+let t1Correct = new Set();
+
+function renderT1() {
+  const f = document.getElementById('t1-functions');
+  const p = document.getElementById('t1-paragraphs');
+  f.innerHTML = '';
+  p.innerHTML = '';
+
+  T1_FUNCTIONS.forEach(item => {
+    const div = document.createElement('div');
+    div.className = 'card-item' + (t1Correct.has(item.id) ? ' correct' : '');
+    div.textContent = item.text;
+    if (!t1Correct.has(item.id)) div.onclick = () => { t1Selected = item.id; renderT1(); };
+    f.appendChild(div);
+  });
+
+  for (let i = 1; i <= 6; i++) {
+    const div = document.createElement('div');
+    div.className = 'card-item';
+    div.textContent = 'Paragraph ' + i;
+    div.onclick = () => checkT1(i);
+    p.appendChild(div);
+  }
+}
+
+function checkT1(choice) {
+  if (!t1Selected) {
+    showFeedback('t1-feedback', 'Select a function first.', 'err');
+    return;
+  }
+  const correct = T1_FUNCTIONS.find(x => x.id === t1Selected).match;
+  if (choice === correct) {
+    t1Correct.add(t1Selected);
+    showFeedback('t1-feedback', 'Correct!', 'ok');
+  } else {
+    showFeedback('t1-feedback', 'Not quite — try again.', 'err');
+  }
+  t1Selected = null;
+  renderT1();
+}
+
+/* ---------------- TASK 3 ---------------- */
+
+const T3_DATA = [
+  { id: '1', adj: 'haunting', match: 'd' },
+  { id: '2', adj: 'moving', match: 'a' },
+  { id: '3', adj: 'compelling', match: 'f' },
+  { id: '4', adj: 'gripping', match: 'b' },
+  { id: '5', adj: 'convincing', match: 'e' },
+  { id: '6', adj: 'breathtaking', match: 'c' }
+];
+
+const T3_MEANINGS = {
+  a: 'producing a strong feeling of sadness or sympathy',
+  b: 'so interesting or exciting that you cannot stop watching',
+  c: 'astonishingly impressive or beautiful',
+  d: 'remaining in your memory in a beautiful, slightly sad way',
+  e: 'performed in a way that seems real and believable',
+  f: 'intensely interesting or exciting'
+};
+
+let t3Selected = null;
+let t3Correct = new Set();
+
+function renderT3() {
+  const a = document.getElementById('t3-adj');
+  const m = document.getElementById('t3-meanings');
+  a.innerHTML = '';
+  m.innerHTML = '';
+
+  T3_DATA.forEach(item => {
+    const div = document.createElement('div');
+    div.className = 'card-item' + (t3Correct.has(item.id) ? ' correct' : '');
+    div.textContent = item.adj;
+    if (!t3Correct.has(item.id)) div.onclick = () => { t3Selected = item.id; renderT3(); };
+    a.appendChild(div);
+  });
+
+  Object.entries(T3_MEANINGS).forEach(([key, text]) => {
+    const div = document.createElement('div');
+    div.className = 'card-item';
+    div.textContent = text;
+    div.onclick = () => checkT3(key);
+    m.appendChild(div);
+  });
+}
+
+function checkT3(choice) {
+  if (!t3Selected) {
+    showFeedback('t3-feedback', 'Select an adjective first.', 'err');
+    return;
+  }
+  const correct = T3_DATA.find(x => x.id === t3Selected).match;
+  if (choice === correct) {
+    t3Correct.add(t3Selected);
+    showFeedback('t3-feedback', 'Correct!', 'ok');
+  } else {
+    showFeedback('t3-feedback', 'Not quite — try again.', 'err');
+  }
+  t3Selected = null;
+  renderT3();
+}
+
+/* ---------------- FEEDBACK ---------------- */
+
+function showFeedback(id, msg, type) {
+  const el = document.getElementById(id);
+  el.className = 'feedback ' + type;
+  el.textContent = msg;
+}
+
+/* ---------------- INIT ---------------- */
+
+renderT1();
+renderT3();
+</script>
 
 </body>
 </html>
-
